@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import styles from './Page_Style/LoginPage.module.css';
+import './Page_Style/LoginPage.css';
 
 const Login = () => {
   const navigate = useNavigate();
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [loading, setLoading] = useState(false);
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -16,15 +17,21 @@ const Login = () => {
 
     // Check if the entered username and password match the stored credentials
     if (username === storedUsername && password === storedPassword) {
-      // Navigate to the home page if credentials match
-      navigate('/home');
+      // Show loading indicator
+      setLoading(true);
+
+      // Simulate a loading delay of 5 seconds before navigating
+      setTimeout(() => {
+        setLoading(false);
+        navigate('/home');
+      }, 5000);
     } else {
       alert('Invalid username or password');
     }
   };
 
   return (
-    <section className={styles.loginPage}>
+    <section className="loginPage">
       <aside>
         <h1>Login</h1>
         <h2>Please enter your details:</h2>
@@ -34,18 +41,23 @@ const Login = () => {
             placeholder="Username"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
-            className={styles.input}
+            className="input"
+            disabled={loading}
           />
           <input
             type="password"
             placeholder="Password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            className={styles.input}
+            className="input"
+            disabled={loading}
           />
-          <button type="submit" className={styles.button}>Login</button>
+          <button type="submit" className="button" disabled={loading}>
+            {loading ? 'Logging In...' : 'Login'}
+          </button>
         </form>
-        <p>Not Yet Registered? <Link className={styles.link} to="/signup">Sign Up</Link></p>
+        {loading && <p className="loading">Loading...</p>}
+        <p>Not Yet Registered? <Link className="link" to="/signup">Sign Up</Link></p>
       </aside>
     </section>
   );

@@ -2,9 +2,22 @@
 
 /*HomePage*/
 
-
--bottom: 10px;
+/*
+body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
 }
+
+
+.container {
+    margin-bottom: 20px;
+}
+
+.item {
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin-bottom: 10px;
+}*/
 
 /* Adjust the size of podcast images */
 /* index.css */

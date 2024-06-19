@@ -1,27 +1,41 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import styles from './Page_Style/LoginPage.module.css'; // Ensure this path is correct
+import './Page_Style/SignUpPage.css'; 
 
 const SignUp = () => {
   const navigate = useNavigate();
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
+  const [error, setError] = useState('');
 
   const handleSignUp = (e) => {
     e.preventDefault();
 
-    // Check if passwords match
-    if (password !== confirmPassword) {
-      alert('Passwords do not match');
+    // Reset error state
+    setError('');
+
+    // Basic validation
+    if (username.length < 3) {
+      setError('Username must be at least 3 characters long');
       return;
     }
 
-    // Save credentials to localStorage
-    localStorage.setItem('username:', username);
-    localStorage.setItem('password:', password);
+    if (password.length < 6) {
+      setError('Password must be at least 6 characters long');
+      return;
+    }
 
-    // Optionally, you can clear the input fields after successful sign-up
+    if (password !== confirmPassword) {
+      setError('Passwords do not match');
+      return;
+    }
+
+    // Save credentials to localStorage 
+    localStorage.setItem('username', username);
+    localStorage.setItem('password', password);
+
+    // Clear input fields
     setUsername('');
     setPassword('');
     setConfirmPassword('');
@@ -32,35 +46,39 @@ const SignUp = () => {
   };
 
   return (
-    <section className={styles.signUpPage}>
+    <section className="signUpPage">
       <aside>
         <h1>Sign Up:</h1>
         <h2>Please enter your details:</h2>
+        {error && <p className="error">{error}</p>}
         <form onSubmit={handleSignUp}>
           <input
             type="text"
             placeholder="Username"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
-            className={styles.input}
+            className="input"
+            required
           />
           <input
             type="password"
             placeholder="Password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            className={styles.input}
+            className="input"
+            required
           />
           <input
             type="password"
             placeholder="Re-enter Password"
             value={confirmPassword}
             onChange={(e) => setConfirmPassword(e.target.value)}
-            className={styles.input}
+            className="input"
+            required
           />
-          <button type="submit" className={styles.button}>Sign Up</button>
+          <button type="submit" className="button">Sign Up</button>
         </form>
-        <p>Already Registered? <Link className={styles.link} to="/">Login</Link></p>
+        <p>Already Registered? <Link className="link" to="/">Login</Link></p>
       </aside>
     </section>
   );

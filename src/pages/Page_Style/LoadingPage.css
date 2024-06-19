@@ -1,0 +1,13 @@
+
+/*still working on it */
+
+
+.loader{
+    animation: animate 1.5x linear infinite;
+    clip: rect(0, 80px, 80px, 40px);
+    height: 80px;
+    width: 80px;
+    position: absolute;
+    left: calc(50% - 40px);
+    top: calc(50% - 40px);
+}
