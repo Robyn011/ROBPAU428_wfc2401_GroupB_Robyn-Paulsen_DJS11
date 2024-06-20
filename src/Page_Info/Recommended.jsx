@@ -5,8 +5,7 @@ import { Link } from 'react-router-dom';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
-
-const HomePage = () => {
+const Recommended = () => {
   const [previews, setPreviews] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -26,11 +25,16 @@ const HomePage = () => {
     return sentences.slice(0, 4).join('. ') + (sentences.length > 4 ? '...' : '');
   };
 
+  const formatDate = (dateString) => {
+    const date = new Date(dateString);
+    return date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+  };
+
   const NextArrow = (props) => {
     const { className, style, onClick } = props;
     return (
       <div
-        className={`${className} custom-arrow`}
+        className={`${className} custom-arrow next-arrow`}
         style={{ ...style, display: 'block', right: '-25px' }}
         onClick={onClick}
       />
@@ -41,7 +45,7 @@ const HomePage = () => {
     const { className, style, onClick } = props;
     return (
       <div
-        className={`${className} custom-arrow`}
+        className={`${className} custom-arrow prev-arrow`}
         style={{ ...style, display: 'block', left: '-25px' }}
         onClick={onClick}
       />
@@ -52,7 +56,7 @@ const HomePage = () => {
     dots: true,
     infinite: true,
     speed: 600,
-    slidesToShow: 5,
+    slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 2500,
@@ -62,8 +66,8 @@ const HomePage = () => {
       {
         breakpoint: 1024,
         settings: {
-          slidesToShow: 3,
-          slidesToScroll: 3,
+          slidesToShow: 1,
+          slidesToScroll: 1,
           infinite: true,
           dots: true,
           nextArrow: <NextArrow />,
@@ -73,8 +77,8 @@ const HomePage = () => {
       {
         breakpoint: 600,
         settings: {
-          slidesToShow: 2,
-          slidesToScroll: 2,
+          slidesToShow: 1,
+          slidesToScroll: 1,
           initialSlide: 2,
           nextArrow: <NextArrow />,
           prevArrow: <PrevArrow />
@@ -94,7 +98,6 @@ const HomePage = () => {
 
   return (
     <div className="container">
-      <h1>Welcome to the Podcast Homepage</h1>
       {loading ? (
         <p>Loading...</p>
       ) : (
@@ -104,10 +107,16 @@ const HomePage = () => {
             {previews.map(preview => (
               <div key={preview.id} className="podcast-item">
                 <h3>{preview.title}</h3>
-                <Link to={`/PodcastPlaylist/${preview.id}`}>
-                  {preview.image && <img src={preview.image} alt={preview.title} className="podcast-image" />}
-                </Link>
-                <p className="podcast-description">{truncateDescription(preview.description)}</p>
+                <div className="podcast-content">
+                  <Link to={`/PodcastPlaylist/${preview.id}`}>
+                    {preview.image && <img src={preview.image} alt={preview.title} className="podcast-image" />}
+                  </Link>
+                  <div className="podcast-description">
+                    <p>{truncateDescription(preview.description)}</p>
+                    <p className="podcast-genre">{preview.genre}</p>
+                    <p className="podcast-modified">{formatDate(preview.modified)}</p>
+                  </div>
+                </div>
               </div>
             ))}
           </Slider>
@@ -117,4 +126,4 @@ const HomePage = () => {
   );
 };
 
-export default HomePage;
+export default Recommended;

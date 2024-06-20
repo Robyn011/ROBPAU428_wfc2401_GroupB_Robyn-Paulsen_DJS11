@@ -11,7 +11,7 @@ const Login = () => {
   const handleLogin = (e) => {
     e.preventDefault();
 
-    // Fetch credentials from local storage
+    // Fetch credentials from local storage or your authentication API
     const storedUsername = localStorage.getItem('username');
     const storedPassword = localStorage.getItem('password');
 
@@ -20,7 +20,7 @@ const Login = () => {
       // Show loading indicator
       setLoading(true);
 
-      // Simulate a loading delay of 5 seconds before navigating
+      // Simulate a loading delay of 5 seconds before navigating to '/home'
       setTimeout(() => {
         setLoading(false);
         navigate('/home');
