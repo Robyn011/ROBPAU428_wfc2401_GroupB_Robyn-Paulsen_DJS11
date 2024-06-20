@@ -1,0 +1,58 @@
+
+.podcast-playlist {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .podcast-playlist h1 {
+    text-align: center;
+    font-size: 2em;
+    margin-bottom: 20px;
+  }
+  
+  .podcast-playlist-image {
+    display: block;
+    margin: 0 auto 20px;
+    max-width: 100%;
+    height: auto;
+    width: 200px; /* Adjust this value as needed */
+  }
+  
+  .podcast-playlist p {
+    text-align: center;
+    font-size: 1.2em;
+    margin-bottom: 20px;
+  }
+  
+  .episodes {
+    margin-top: 20px;
+  }
+  
+  .season {
+    margin-bottom: 20px;
+  }
+  
+  .season h2 {
+    text-align: center;
+    font-size: 1.5em;
+    margin-bottom: 10px;
+  }
+  
+  .episode {
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+  }
+  
+  .episode h3 {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+  }
+  
+  audio {
+    width: 100%;
+  }
+  

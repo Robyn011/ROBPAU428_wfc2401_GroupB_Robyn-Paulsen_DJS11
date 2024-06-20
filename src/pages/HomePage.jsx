@@ -14,13 +14,39 @@ const HomePage = () => {
     fetch('https://podcast-api.netlify.app')
       .then(response => response.json())
       .then(data => {
-        // Shuffle the array and take the first 5 items
         const shuffled = data.sort(() => 0.5 - Math.random());
         const selected = shuffled.slice(0, 5);
         setPreviews(selected);
         setLoading(false);
       });
   }, []);
+
+  const truncateDescription = (description) => {
+    const sentences = description.split('. ');
+    return sentences.slice(0, 4).join('. ') + (sentences.length > 4 ? '...' : '');
+  };
+
+  const NextArrow = (props) => {
+    const { className, style, onClick } = props;
+    return (
+      <div
+        className={`${className} custom-arrow`}
+        style={{ ...style, display: 'block', right: '-25px' }}
+        onClick={onClick}
+      />
+    );
+  };
+
+  const PrevArrow = (props) => {
+    const { className, style, onClick } = props;
+    return (
+      <div
+        className={`${className} custom-arrow`}
+        style={{ ...style, display: 'block', left: '-25px' }}
+        onClick={onClick}
+      />
+    );
+  };
 
   const carouselSettings = {
     dots: true,
@@ -30,6 +56,8 @@ const HomePage = () => {
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 2500,
+    nextArrow: <NextArrow />,
+    prevArrow: <PrevArrow />,
     responsive: [
       {
         breakpoint: 1024,
@@ -37,7 +65,9 @@ const HomePage = () => {
           slidesToShow: 3,
           slidesToScroll: 3,
           infinite: true,
-          dots: true
+          dots: true,
+          nextArrow: <NextArrow />,
+          prevArrow: <PrevArrow />
         }
       },
       {
@@ -45,22 +75,21 @@ const HomePage = () => {
         settings: {
           slidesToShow: 2,
           slidesToScroll: 2,
-          initialSlide: 2
+          initialSlide: 2,
+          nextArrow: <NextArrow />,
+          prevArrow: <PrevArrow />
         }
       },
       {
         breakpoint: 480,
         settings: {
           slidesToShow: 1,
-          slidesToScroll: 1
+          slidesToScroll: 1,
+          nextArrow: <NextArrow />,
+          prevArrow: <PrevArrow />
         }
       }
     ]
-  };
-
-  const truncateDescription = (description) => {
-    const sentences = description.split('. ');
-    return sentences.slice(0, 4).join('. ') + (sentences.length > 4 ? '...' : '');
   };
 
   return (

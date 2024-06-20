@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import './Page_Style/PodcastPlaylist.css'
 
 const PodcastPlaylist = () => {
   const { podcastId } = useParams();
