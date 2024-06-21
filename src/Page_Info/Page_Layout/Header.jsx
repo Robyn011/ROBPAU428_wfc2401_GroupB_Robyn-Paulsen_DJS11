@@ -114,13 +114,13 @@ const Header = () => {
                 <div className="logo-container">
                     <Link to="/" className="logo-link">
                         <LiaMusicSolid className="logo-icon" />
-                        <span className="logo-text">TTS</span>
+                        <span className="logo-text">The Timeless Escape</span>
                     </Link>
                 </div>
                 <nav className="navigation-container">
                     <ul className="navigation">
                         <li><Link to="/favorite">Favorites</Link></li>
-                        <li><Link to="/login">Log Out</Link></li>
+                        <li><Link to="/">Log Out</Link></li>
                     </ul>
                 </nav>
             </div>

@@ -117,7 +117,7 @@ const Recommended = () => {
         <p>Loading...</p>
       ) : (
         <div>
-          <h2>Featured Podcasts:</h2>
+          <h2 className='Sug_Heading'>Suggested Podcasts:</h2>
           {/* Slider component to display podcast previews */}
           <Slider {...carouselSettings}>
             {previews.map(preview => (
