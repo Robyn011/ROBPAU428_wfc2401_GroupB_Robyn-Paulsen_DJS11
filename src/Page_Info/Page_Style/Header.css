@@ -1,0 +1,106 @@
+.header_layout {
+    width: 100%;
+    background-color: #f8f9fa;
+    padding: 10px 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .header-bottom {
+    /* Styles for content below navigation */
+  }
+  
+  .logo-container {
+    flex: 1;
+  }
+  
+  .navigation-container {
+    display: flex;
+    align-items: center;
+  }
+  
+  .logo-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+  }
+  
+  .logo-icon {
+    font-size: 24px;
+    color: #007bff;
+  }
+  
+  .logo-text {
+    margin-left: 5px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .navigation ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .navigation ul li {
+    margin: 0 15px;
+  }
+  
+  .navigation ul li a {
+    text-decoration: none;
+    color: #007bff;
+    font-size: 16px;
+  }
+  
+  .navigation ul li a:hover {
+    text-decoration: underline;
+  }
+  
+  .search-form {
+    display: flex;
+    align-items: center;
+  }
+  
+  .search-form input[type="text"] {
+    padding: 8px;
+    margin-right: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+  }
+  
+  .search-form button {
+    padding: 8px 12px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .search-form button:hover {
+    background-color: #0056b3;
+  }
+  
+  .search-form select {
+    padding: 8px;
+    font-size: 16px;
+  }
+  
+
+  .podcast-image {
+    max-width: 100%; /* Adjust the maximum width of the image */
+    height: auto; /* Maintain aspect ratio */
+
+   text-align: center;
+  }
+  
