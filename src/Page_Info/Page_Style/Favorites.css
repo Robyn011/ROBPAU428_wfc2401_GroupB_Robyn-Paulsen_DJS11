@@ -1,0 +1,102 @@
+.favorite-episodes {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #eadfdf;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center items horizontally */
+}
+
+.favorite-episodes h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #151313;
+    text-align: center; /* Center text */
+}
+
+.favorite-episodes-list {
+    
+    width: 100%; /* Full width for the list */
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center items horizontally */
+}
+
+.favorite-podcast {
+    width: 100%; /* Full width for each podcast section */
+    margin-bottom: 20px;
+    border-bottom: 1px solid #7c7777;
+    padding-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center items horizontally */
+}
+
+.favorite-podcast h2 {/*h2 checkkk*/
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #141313;
+    text-align: center; /* Center text */
+}
+
+.favorite-episode {
+    width: 100%; /* Full width for each episode */
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #aba9a9;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center items horizontally */
+}
+
+.favorite-episode h3 {
+    font-size: 18px;
+    margin-bottom: 5px;
+    color: #26164ee7;
+    text-align: center; /* Center text */
+}
+
+.favorite-episode p {
+    font-size: 14px;
+    margin-bottom: 5px;
+    color: #666;
+    text-align: center; /* Center text */
+}
+
+.favorite-episode .season-image {
+    max-width: 100px;
+    border-radius: 4px;
+}
+
+.unfavorite-button {
+    background-color: #388411;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.unfavorite-button:hover {
+    background-color: #e21a1a;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    .favorite-episodes {
+        padding: 15px;
+    }
+
+    .favorite-podcast h2 {
+        font-size: 18px;
+    }
+
+    .favorite-episode h3 {
+        font-size: 16px;
+    }
+}

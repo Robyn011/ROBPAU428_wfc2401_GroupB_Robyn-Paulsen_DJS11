@@ -12,12 +12,10 @@
     justify-content: space-between;
     align-items: center;
     margin-bottom: 10px;
+    background-color: #a6a6a6;
+   
   }
-  
-  .header-bottom {
-    /* Styles for content below navigation */
-  }
-  
+ 
   .logo-container {
     flex: 1;
   }
@@ -35,14 +33,14 @@
   
   .logo-icon {
     font-size: 24px;
-    color: #007bff;
+    color: #ff00ff;
   }
   
   .logo-text {
     margin-left: 5px;
     font-size: 20px;
     font-weight: bold;
-    color: #333;
+    color: #ffffff;
   }
   
   .navigation ul {
@@ -98,8 +96,8 @@
   
 
   .podcast-image {
-    max-width: 100%; /* Adjust the maximum width of the image */
-    height: auto; /* Maintain aspect ratio */
+    max-width: 100%; 
+    height: auto; 
 
    text-align: center;
   }
