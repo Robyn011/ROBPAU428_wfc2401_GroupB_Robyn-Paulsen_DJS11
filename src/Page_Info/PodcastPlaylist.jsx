@@ -104,7 +104,7 @@ const PodcastPlaylist = () => {
                 <nav>
                     <ul>
                         <li><Link to="/favorite">Favorites</Link></li>
-                        <li><Link to="/login">Log Out</Link></li>
+                        <li><Link to="/">Log Out</Link></li>
                     </ul>
                 </nav>
                 <h1>{podcast.title}</h1>
