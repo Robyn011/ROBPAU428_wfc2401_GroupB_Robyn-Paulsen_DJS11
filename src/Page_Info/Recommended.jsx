@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import Slider from 'react-slick';
-import './Page_Style/HomePage.css'; // Import CSS file
-import { Link } from 'react-router-dom';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
+import Slider from 'react-slick'; // Importing Slider component from react-slick library
+import './Page_Style/HomePage.css'; // Importing CSS file for styling
+import { Link } from 'react-router-dom'; // Importing Link component from react-router-dom
+import 'slick-carousel/slick/slick.css'; // Importing CSS for Slider
+import 'slick-carousel/slick/slick-theme.css'; // Importing theme CSS for Slider
 
 const Recommended = () => {
   // State to store the podcast previews and loading status
@@ -68,13 +68,13 @@ const Recommended = () => {
 
   // Settings configuration for the Slider component
   const carouselSettings = {
-    dots: true,
-    infinite: true,
-    speed: 600,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 2500,
+    dots: true, // Show pagination dots
+    infinite: true, // Infinite loop of slides
+    speed: 600, // Transition speed in milliseconds
+    slidesToShow: 1, // Number of slides to show at once
+    slidesToScroll: 1, // Number of slides to scroll at once
+    autoplay: true, // Autoplay slides
+    autoplaySpeed: 2500, // Autoplay interval in milliseconds
     nextArrow: <NextArrow />, // Custom next arrow component
     prevArrow: <PrevArrow />, // Custom previous arrow component
     responsive: [
@@ -85,8 +85,8 @@ const Recommended = () => {
           slidesToScroll: 1,
           infinite: true,
           dots: true,
-          nextArrow: <NextArrow />,
-          prevArrow: <PrevArrow />
+          nextArrow: <NextArrow />, // Custom next arrow component for medium screens
+          prevArrow: <PrevArrow /> // Custom previous arrow component for medium screens
         }
       },
       {
@@ -94,9 +94,9 @@ const Recommended = () => {
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
-          initialSlide: 2,
-          nextArrow: <NextArrow />,
-          prevArrow: <PrevArrow />
+          initialSlide: 2, // Start slide index for small screens
+          nextArrow: <NextArrow />, // Custom next arrow component for small screens
+          prevArrow: <PrevArrow /> // Custom previous arrow component for small screens
         }
       },
       {
@@ -104,8 +104,8 @@ const Recommended = () => {
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
-          nextArrow: <NextArrow />,
-          prevArrow: <PrevArrow />
+          nextArrow: <NextArrow />, // Custom next arrow component for extra small screens
+          prevArrow: <PrevArrow /> // Custom previous arrow component for extra small screens
         }
       }
     ]
@@ -117,16 +117,16 @@ const Recommended = () => {
         <p>Loading...</p>
       ) : (
         <div>
-          <h2 className='Sug_Heading'>Suggested Podcasts:</h2>
+          <h2 className='Sug_Heading'>Suggested Podcasts:</h2> {/* Heading for suggested podcasts */}
           {/* Slider component to display podcast previews */}
           <Slider {...carouselSettings}>
             {previews.map(preview => (
               <div key={preview.id} className="podcast-item">
-                <h3>{preview.title}</h3>
+                <h3>{preview.title}</h3> {/* Displaying podcast title */}
                 <div className="podcast-content">
                   {/* Link to the detailed podcast page */}
                   <Link to={`/PodcastPlaylist/${preview.id}`}>
-                    {preview.image && <img src={preview.image} alt={preview.title} className="podcast-image" />}
+                    {preview.image && <img src={preview.image} alt={preview.title} className="podcast-image" />} {/* Displaying podcast image */}
                   </Link>
                   <div className="podcast-description">
                     {/* Display truncated description */}
