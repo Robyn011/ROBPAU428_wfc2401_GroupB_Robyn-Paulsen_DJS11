@@ -5,7 +5,7 @@ import Login from './src/Page_Info/LoginPage.jsx';
 import LoadingPage from './src/Page_Info/LoadingPage.jsx';
 import SignUp from './src/Page_Info/SignUpPage.jsx';
 import Home from './src/Page_Info/Page_Layout/Home.jsx';
-import Favorite from './src/Page_Info/Favorites.jsx';
+import Favorite from './src/Page_Info/Page_Layout/Favorites.jsx';
 import PodcastPlaylist from './src/Page_Info/PodcastPlaylist.jsx'
 
 function App(){

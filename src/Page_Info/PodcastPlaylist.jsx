@@ -63,15 +63,29 @@ const PodcastPlaylist = () => {
         return 0; // Default to beginning if no stored position found
     };
 
+    const resetPlaybackPositions = () => {
+        podcast.seasons.forEach(season => {
+            season.episodes.forEach(episode => {
+                const localStorageKey = `episode-${episode.id}`;
+                localStorage.removeItem(localStorageKey);
+            });
+        });
+        alert("Playback positions have been reset.");
+    };
+
     return (
         <div className="podcast-playlist">
-            <h1>{podcast.title}</h1>
+            <div className="header">
+            <button onClick={resetPlaybackPositions} className="reset-button">Reset Progress</button>
+                <h1>{podcast.title}</h1>
+                
+            </div>
             <img src={podcast.image} alt={podcast.title} className="podcast-playlist-image" />
             <p>{podcast.description}</p>
             <div className="seasons">
                 {podcast.seasons.map(season => (
                     <div key={season.id} className="season">
-                        <h2>Season: {season.title}</h2>
+                        <h2>{season.title}</h2>
                         <img src={season.image} alt={season.title} className="season-image" />
                         <div className="episodes">
                             {season.episodes.map(episode => (
