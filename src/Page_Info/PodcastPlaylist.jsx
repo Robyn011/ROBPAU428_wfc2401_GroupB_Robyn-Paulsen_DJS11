@@ -111,6 +111,7 @@ const PodcastPlaylist = () => {
                 <nav>
                     <ul>
                         <li><Link to="/favorite">Favorites</Link></li> {/* Link to favorites page */}
+                        <li><Link to= "/home">Home</Link></li>  {/* Link to Homepage */}
                         <li><Link to="/">Log Out</Link></li> {/* Link to log out */}
                     </ul>
                 </nav>
